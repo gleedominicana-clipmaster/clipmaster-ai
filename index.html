@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#101323">
+  <meta name="description" content="ClipMaster AI: editor de clips local y gratuito.">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <title>ClipMaster AI</title>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><span class="brand-icon">✂</span><div><strong>ClipMaster AI</strong><small>Tu estudio de clips</small></div></div>
+    <span class="free-tag">GRATIS</span>
+  </header>
+
+  <main>
+    <section class="intro">
+      <p class="eyebrow">EDITOR MÓVIL · VERSIÓN 0.1</p>
+      <h1>Convierte tus videos<br><span>en clips verticales.</span></h1>
+      <p class="muted">Tus archivos se procesan en tu dispositivo. No se suben a un servidor.</p>
+    </section>
+
+    <section class="panel upload-panel">
+      <label class="upload-button" for="videoFile"><span>＋</span> Seleccionar video del celular</label>
+      <input id="videoFile" type="file" accept="video/*">
+      <p class="hint" id="fileHint">Elige un video guardado en tu Android.</p>
+    </section>
+
+    <section class="workspace">
+      <div class="section-heading"><h2>Vista previa</h2><span class="step">01</span></div>
+      <div class="preview-wrap">
+        <div class="phone-frame" id="phoneFrame">
+          <video id="video" playsinline controls></video>
+          <div class="empty-state" id="emptyState"><span>▶</span><b>Tu video aparecerá aquí</b><small>Selecciona un archivo para comenzar</small></div>
+        </div>
+      </div>
+      <div class="toolbar">
+        <button class="secondary" id="fitBtn" type="button">Ajustar video</button>
+        <button class="secondary active" id="fillBtn" type="button">Rellenar vertical</button>
+      </div>
+    </section>
+
+    <section class="panel editor-panel">
+      <div class="section-heading"><h2>Elegir fragmento</h2><span class="step">02</span></div>
+      <div class="time-row"><label for="startRange">Inicio <b id="startLabel">00:00</b></label><label for="endRange">Final <b id="endLabel">00:00</b></label></div>
+      <div class="range-group">
+        <input id="startRange" type="range" min="0" max="0" step="0.1" value="0" disabled>
+        <input id="endRange" type="range" min="0" max="0" step="0.1" value="0" disabled>
+      </div>
+      <div class="duration-line"><span>Duración del clip</span><strong id="durationLabel">00:00</strong></div>
+      <div class="actions">
+        <button class="secondary" id="previewClipBtn" disabled>▶ Ver selección</button>
+        <button class="primary" id="exportBtn" disabled>Exportar clip</button>
+      </div>
+      <p class="hint" id="exportHint">Selecciona un video para activar el editor.</p>
+      <div class="progress hidden" id="progress"><div id="progressBar"></div></div>
+    </section>
+
+    <section class="panel">
+      <div class="section-heading"><h2>Próximas funciones</h2><span class="step">03</span></div>
+      <div class="feature-list">
+        <div><span>✨</span><p><b>Momentos destacados con IA</b><small>Detectar automáticamente partes interesantes.</small></p><em>Próximamente</em></div>
+        <div><span>💬</span><p><b>Subtítulos en español</b><small>Transcripción y subtítulos editables.</small></p><em>Próximamente</em></div>
+        <div><span>📱</span><p><b>Formato para redes</b><small>Preparar clips para Reels, TikTok y Shorts.</small></p><em>En prueba</em></div>
+      </div>
+    </section>
+    <footer>ClipMaster AI · Versión inicial 0.1 · Procesamiento local</footer>
+  </main>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="app.js"></script>
+</body>
+</html>
